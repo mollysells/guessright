@@ -1,4 +1,5 @@
 import { Hanken_Grotesk, Schibsted_Grotesk } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const hanken = Hanken_Grotesk({
@@ -17,7 +18,7 @@ const schibsted = Schibsted_Grotesk({
 export const metadata = {
   title: "GuessRight — AP Question Bank",
   description:
-    "31,592 real AP-style questions across 21 courses, automatically ordered the way you actually learn: an easy-to-hard ramp with topics interleaved for retention.",
+    "27,993 real AP-style questions across 20 courses, automatically ordered the way you actually learn: an easy-to-hard ramp with topics interleaved for retention.",
 };
 
 export const viewport = { width: "device-width", initialScale: 1 };
@@ -25,7 +26,10 @@ export const viewport = { width: "device-width", initialScale: 1 };
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${hanken.variable} ${schibsted.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
